@@ -4,6 +4,10 @@ import { AuthContext } from '../Auth/AuthProvider';
 
 const Navbar = () => {
     const { user, userSingOut } = useContext(AuthContext)
+    const imgStyle={
+        width:'200px',
+        height:'100px'
+    }
     const navlink = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/room'>Room</NavLink></li>
@@ -26,7 +30,7 @@ const Navbar = () => {
 
     }
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -37,10 +41,12 @@ const Navbar = () => {
                         {navlink}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">
+                <a className=" normal-case text-xl mb-8">
 
-                    <h2 className='text-xl font-bold'>HOTTLE <span className='text-green-500'>BOOKING</span></h2>
-
+                    {/* <h2 className='text-xl font-bold'>HOTTLE <span className='text-green-500'>BOOKING</span></h2> */}
+                      <Link to='/'>
+                      <img style={imgStyle} src="https://i.ibb.co/bdFB5dm/screen-0.jpg" alt="" />
+                      </Link>
                 </a>
             </div>
             <div className="navbar-center hidden lg:flex">
