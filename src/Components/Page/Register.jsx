@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assets/login.svg'
+import { AuthContext } from '../Auth/AuthProvider';
+import { Link } from 'react-router-dom';
+import Google from '../Google/Google';
+
 const Register = () => {
+
+    const {userSingUp}=useContext(AuthContext)
     const handelRegister=(e)=>{
         e.preventDefault()
         const name=e.target.name.value;
@@ -12,6 +18,14 @@ const Register = () => {
            password
        }
        console.log(newUser)
+
+       userSingUp(email,password)
+       .then(res=>{
+        console.log(res.user)
+       })
+       .catch(error=>{
+        console.log(error)
+       })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -47,7 +61,12 @@ const Register = () => {
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Sing-Up</button>
               </div>
+              <p>
+                Already have An Account? Please 
+                 <Link className='text-red-600 font-bold' to='/login'>Login</Link>
+              </p>
             </form>
+            <Google></Google>
           </div>
         </div>
       </div>

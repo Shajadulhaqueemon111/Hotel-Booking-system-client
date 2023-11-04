@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import logo from '../../assets/login.svg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../Auth/AuthProvider';
+import Google from '../Google/Google';
+
 const Login = () => {
 
-   
+   const {user, userSingIn}=useContext(AuthContext)
+
+   const navigate=useNavigate()
     const handelLogin=(e)=>{
      e.preventDefault()
 
@@ -15,6 +20,21 @@ const Login = () => {
         password
     }
     console.log(newUser)
+
+    if(password.length<6){
+        alert('Firebase: Error (auth/invalid-login-credentials).')
+    }else{
+        alert('Successfully login')
+    }
+
+    userSingIn(email,password)
+    .then(res=>{
+        console.log(res.user)
+        navigate(location?.state? location.state:'/')
+    })
+    .catch(error=>{
+        console.log(error)
+    })
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -50,6 +70,7 @@ const Login = () => {
                 <Link className='text-red-600 font-bold' to='/register'>Register</Link>
               </p>
             </form>
+            <Google></Google>
           </div>
         </div>
       </div>
