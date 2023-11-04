@@ -1,8 +1,11 @@
 import React from 'react';
 import MainLayOut from '../MainLayOut/MainLayOut';
 import Home from '../Page/Home';
+import { createBrowserRouter } from 'react-router-dom';
+import Login from '../Page/Login';
+import Register from '../Page/Register';
 
-const Route = () => {
+
     const router = createBrowserRouter([
         {
           path: "/",
@@ -11,11 +14,19 @@ const Route = () => {
             {
              path:'/',
              element:<Home></Home>
-            }
+            },
+            {
+             path:'/login',
+             element:<Login></Login>
+            },
+            {
+             path:'/register',
+             element:<Register></Register>
+            },
           ]
         },
       ]);
    
-};
 
-export default Route;
+
+export default router;
