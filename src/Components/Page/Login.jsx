@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import logo from '../../assets/login.svg'
 import { Link, useNavigate } from 'react-router-dom';
@@ -8,7 +8,7 @@ import Google from '../Google/Google';
 const Login = () => {
 
    const {user, userSingIn}=useContext(AuthContext)
-
+   const [emailError, setEmailError] = useState('');
    const navigate=useNavigate()
     const handelLogin=(e)=>{
      e.preventDefault()
@@ -21,11 +21,27 @@ const Login = () => {
     }
     console.log(newUser)
 
-    if(password.length<6){
-        alert('Firebase: Error (auth/invalid-login-credentials).')
-    }else{
-        alert('Successfully login')
+    if (!email || !email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+      setEmailError('Please enter a valid email address');
+      return;
+    } else {
+      setEmailError('');
     }
+   
+     if(password.length<6){
+      swal({
+        title: "Firebase: Error (auth/invalid-login-credentials).",
+        text: "You clicked the button!",
+        icon: "error",
+      });
+     }else{
+      swal({
+        title: "You have been successfully Login",
+        text: "You clicked the button!",
+        icon: "success",
+      });
+     }
+
 
     userSingIn(email,password)
     .then(res=>{
@@ -51,6 +67,9 @@ const Login = () => {
                   <span className="label-text">Email</span>
                 </label>
                 <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+                {emailError && ( 
+                  <p className="text-xs text-red-600">{emailError}</p>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
