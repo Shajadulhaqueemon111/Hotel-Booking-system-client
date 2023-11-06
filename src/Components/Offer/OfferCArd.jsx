@@ -6,7 +6,7 @@ const OfferCArd = ({ offer }) => {
 
     const style={
         width:'200px',
-        height:'150px'
+        height:'150px',
     }
     const Cardstyle={
         width:'300px',
@@ -28,7 +28,7 @@ const OfferCArd = ({ offer }) => {
                     <h2 className="card-title">{offerName}</h2>
                     <p>{offerDescription}</p>
                     <div className="card-actions">
-                        {/* <button className="btn btn-primary">Buy Now</button> */}
+                    <button className="btn btn-outline btn-secondary">OFFER</button>
                     </div>
                 </div>
             </div>
