@@ -15,7 +15,7 @@ const BookingsRoom = () => {
             <h2 className='text-2xl font-bold'>Booking <span className='text-purple-600'>Room</span>: {bookings.length}</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
                 {
-                    bookings.map(booking=><BookingCard key={booking._id} booking={booking}></BookingCard>)
+                    bookings?.map(booking=><BookingCard key={booking._id} booking={booking}></BookingCard>)
                 }
             </div>
         </div>

@@ -1,8 +1,17 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
+import 'aos/dist/aos.css'
+import Aos from 'aos';
 const Carosoul = () => {
+    useEffect(() => {
+        Aos.init({
+          duration: 1000, 
+          offset: 200,
+          
+      
+        });
+      }, []);
     return (
-       <div>
+       <div data-aos="zoom-in-left">
         <h2 className='text-2xl font-bold mt-6 mb-6'>User <span className='text-purple-600'>Testimonial</span></h2>
          <div className="carousel w-full h-[600px]">
         <div id="slide1" className="carousel-item relative w-full">
