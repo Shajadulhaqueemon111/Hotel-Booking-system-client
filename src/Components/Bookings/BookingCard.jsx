@@ -29,7 +29,7 @@ const BookingCard = ({ booking }) => {
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{roomDescription}</h2>
                     <p>Price: {price}</p>
-                    <div className="card-actions">
+                    <div className="card-actions flex-1">
                   <Link to={`/details/${_id}`}>
                   <button className="btn btn-outline btn-secondary">Details</button>
                   </Link>

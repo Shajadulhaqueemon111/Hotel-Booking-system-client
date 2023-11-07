@@ -9,13 +9,13 @@ const RoomUpdate = () => {
     const handelUpdate=(e)=>{
         e.preventDefault()
         const description=e.target.description.value 
-        const Roomsize=e.target.Roomsize.value 
+        const roomSize=e.target.roomSize.value 
         const price=e.target.price.value 
         const  availability=e.target.availability.value 
         const specialOffers=e.target.specialOffers.value
         const roomImages=e.target.roomImages.value
-
-        const updateRoom={description,Roomsize,price,availability,specialOffers,roomImages}
+        const date=e.target.date.value;
+        const updateRoom={description,roomSize,price,availability,specialOffers,roomImages}
         console.log(updateRoom)
 
         fetch(`http://localhost:5000/Bookings/${_id}`,{
@@ -43,8 +43,8 @@ const RoomUpdate = () => {
     }
     return (
         <div className='bg-[#F4F3F0] p-24  '>
-        <h2 className='text-3xl font-bold'>Update New Car Brand</h2>
-        <p className='mb-4'>Car brands, also known as automotive brands or manufacturers, are companies that design, produce, and market automobiles. </p>
+        <h2 className='text-3xl font-bold mb-5'>Update <span className='text-purple-600'>Booking Room</span></h2>
+       
         <form onSubmit={handelUpdate}>
             {/* Form row */}
             <div className=' md:flex gap-4'>
@@ -63,7 +63,7 @@ const RoomUpdate = () => {
                     </label>
                     <label className="input-group">
 
-                        <input type="text" name='Roomsize' placeholder="Enter price" className="input input-bordered w-full" />
+                        <input type="text" name='roomSize' placeholder="Enter price" className="input input-bordered w-full" />
                     </label>
                 </div>
             </div>
@@ -98,6 +98,18 @@ const RoomUpdate = () => {
                     <label className="input-group">
 
                         <input type="text" name='specialOffers' placeholder="Enter specialOffers" className="input input-bordered w-full" />
+                    </label>
+                </div>
+               
+            </div>
+            <div className=' md:flex gap-4'>
+                <div className="form-control md:w-full">
+                    <label className="label">
+                        <span className="label-text">Update date</span>
+                    </label>
+                    <label className="input-group">
+
+                        <input type="date" name='date' placeholder="Enter date" className="input input-bordered w-full" />
                     </label>
                 </div>
                

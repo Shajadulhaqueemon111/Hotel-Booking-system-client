@@ -3,9 +3,9 @@ import React from 'react';
 const ReviewsCard = ({ review }) => {
     const { name, rating, comment, time, useremail } = review;
     const cardStyle = {
-        maxWidth: '300px',   // Set a maximum width
-        maxHeight: '400px',  // Set a maximum height
-        // width: '100%',       // Allow the card to expand within the maximum width
+        maxWidth: '300px',  
+        maxHeight: '400px', 
+       
     };
     return (
         <div>
@@ -26,19 +26,7 @@ const ReviewsCard = ({ review }) => {
                     </div>
                 </div>
             </div>
-            {/* <div className="card w-1/2 mx-auto bg-base-100 shadow p-4" style={cardStyle}>
-                <div className="card-body">
-                    <h2 className="card-title"></h2>
-                     <p>Name:{name}</p>
-                    <p>Email: {useremail}</p>
-                    <p>comment: {comment}</p>
-                    <p>Rating: {rating}</p>
-                    <p>Rating: {time}</p>
-                    <div className="card-actions justify-end">
-                        
-                    </div>
-                </div>
-            </div> */}
+           
         </div>
     );
 };

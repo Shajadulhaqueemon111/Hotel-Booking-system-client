@@ -22,7 +22,7 @@ const OfferCArd = ({ offer }) => {
       }, []);
     return (
         <div data-aos="zoom-in-left">
-            <div className="card w-72 mx-auto bg-base-100 shadow-xl " style={Cardstyle}>
+            <div className="card w-72 mx-auto bg-base-100 shadow " style={Cardstyle}>
                 <figure className="px-10 pt-10">
                     <img style={style} src={img} alt="Shoes" className="rounded-xl" />
                 </figure>

@@ -63,7 +63,7 @@ const AddBookingCard = ({ bookRoom, bookRooms, setBookRooms }) => {
     }
     return (
         <div data-aos="zoom-in-left">
-            <div className="card w-3/5 bg-base-100 shadow-xl mx-auto" style={Cardstyle}>
+            <div className="card w-3/5 bg-base-100 shadow mx-auto" style={Cardstyle}>
                 <figure className="px-10 pt-10">
                     <img style={style} src={roomImages} alt="Shoes" className="rounded-xl" />
                 </figure>

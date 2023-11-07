@@ -35,7 +35,7 @@ const DetailsPage = () => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Added to Cart Successfully',
+                        title: 'Added to Book Successfully',
                         showConfirmButton: false,
                         timer: 1500,
                     });
