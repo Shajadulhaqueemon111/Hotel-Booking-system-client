@@ -14,6 +14,8 @@ import Gallary from '../Gallary/Gallary';
 import ContactUs from '../Contact/ContactUs';
 import Update from '../Update/Update';
 import RoomUpdate from '../Bookings/RoomUpdate';
+import ReviewUser from '../Review/ReviewUser';
+import ReviewDetaols from '../Review/ReviewDetaols';
 
 
     const router = createBrowserRouter([
@@ -45,6 +47,14 @@ import RoomUpdate from '../Bookings/RoomUpdate';
             {
               path:'/contact',
               element:<ContactUs></ContactUs>
+            },
+            {
+              path:'/review',
+              element:<ReviewUser></ReviewUser>
+            },
+            {
+              path:'/reviews',
+              element:<ReviewDetaols></ReviewDetaols>
             },
             {
               path:'/update/:id',

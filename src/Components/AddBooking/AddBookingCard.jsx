@@ -78,6 +78,10 @@ const AddBookingCard = ({ bookRoom, bookRooms, setBookRooms }) => {
                    <Link to={`/update/${_id}`}>
                    <button className="btn btn-outline btn-secondary">Update Date</button>
                    </Link>
+                   
+                   <Link to='/review'>
+                   <button className="btn btn-outline btn-secondary">User-Review</button>
+                   </Link>
                     </div>
                 </div>
             </div>
