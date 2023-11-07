@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import AddBookingCard from './AddBookingCard';
-
+import {Helmet} from "react-helmet";
 const AddBooking = () => {
 
     const addLoad = useLoaderData()
@@ -11,6 +11,9 @@ const AddBooking = () => {
    
     return (
         <div>
+            <Helmet>
+                <title>My Booking Page</title>
+            </Helmet>
             <h2 className='text-2xl font-bold'>My Booking <span className='text-purple-600'>Room</span>: {addLoad.length}</h2>
            <div className='grid grid-cols-1 md:grid-cols-3  gap-3'> 
             {

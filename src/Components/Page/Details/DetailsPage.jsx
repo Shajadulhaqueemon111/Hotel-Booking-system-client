@@ -19,7 +19,7 @@ const DetailsPage = () => {
 
     const handleAddToBook = () => {
       
-        const cartItem={roomDescription, price, roomSize, availability,specialOffers, roomImages }
+        const cartItem={roomDescription, price, roomSize, availability, roomImages }
 
         fetch('http://localhost:5000/books', {
             method: 'POST',
@@ -54,7 +54,7 @@ const DetailsPage = () => {
                     <h2 className="card-title">{data.roomDescription}</h2>
                     <p>Room-Size: {data.roomSize}</p>
                     <p>Room-Availability: {data.availability}</p>
-                     <p>specialOffers: {specialOffers}</p>
+                  
                     <div className="card-actions flex">
                     <button onClick={handleAddToBook} className="btn btn-outline btn-secondary">Book Now</button>
                     

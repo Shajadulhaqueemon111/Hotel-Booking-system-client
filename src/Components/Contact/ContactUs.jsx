@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Helmet } from 'react-helmet';
 const ContactUs = () => {
     const Cardstyle = {
         with:'300px',
@@ -7,6 +7,11 @@ const ContactUs = () => {
     }
     return (
         <div className='mx-auto  grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-3'>
+             <Helmet>
+               
+               <title>Contact Page</title>
+               
+           </Helmet>
             <div className=''>
             <div className="card  bg-primary text-primary-content" style={Cardstyle}>
                 <div className="card-body">

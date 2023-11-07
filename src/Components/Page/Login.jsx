@@ -4,7 +4,7 @@ import logo from '../../assets/login.svg'
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Auth/AuthProvider';
 import Google from '../Google/Google';
-
+import {Helmet} from "react-helmet";
 const Login = () => {
 
    const {user, userSingIn}=useContext(AuthContext)
@@ -53,7 +53,13 @@ const Login = () => {
     })
     }
     return (
-        <div className="hero min-h-screen bg-base-200">
+       <div>
+          <Helmet>
+              
+                <title>My Login Page</title>
+                
+            </Helmet>
+         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center lg:text-left">
           <img src={logo} alt="" />
@@ -93,6 +99,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+       </div>
     );
 };
 
