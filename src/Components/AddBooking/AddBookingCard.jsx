@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import Swal from 'sweetalert2';
 import 'aos/dist/aos.css';
 import Aos from 'aos';
+import { Link } from 'react-router-dom';
 const AddBookingCard = ({ bookRoom, bookRooms, setBookRooms }) => {
 
-    const {_id, roomDescription, price, roomSize, availability, roomImages } = bookRoom
+    const {_id, roomDescription, price, roomSize, availability,specialOffers, roomImages } = bookRoom
 
     const style={
         width:'200px',
@@ -70,10 +71,13 @@ const AddBookingCard = ({ bookRoom, bookRooms, setBookRooms }) => {
                     <h2 className="card-title">{roomDescription}</h2>
                     <p>Room-Size: {roomSize}</p>
                     <p>Availability: {availability}</p>
+                    <p>SpecialOffers:{specialOffers}</p>
                     <p>Price: {price}</p>
                     <div className="card-actions">
                     <button onClick={()=>handelDelete(bookRoom._id)} className="btn btn-outline btn-secondary">Delete</button>
-                    {/* <button className="btn btn-outline btn-secondary">Secondary</button> */}
+                   <Link to={`/update/${_id}`}>
+                   <button className="btn btn-outline btn-secondary">Update Date</button>
+                   </Link>
                     </div>
                 </div>
             </div>

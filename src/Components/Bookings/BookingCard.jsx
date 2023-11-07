@@ -33,6 +33,9 @@ const BookingCard = ({ booking }) => {
                   <Link to={`/details/${_id}`}>
                   <button className="btn btn-outline btn-secondary">Details</button>
                   </Link>
+                  <Link to={`/updateRoom/${_id}`}>
+                  <button className="btn btn-outline btn-secondary">Update</button>
+                  </Link>
                     </div>
                 </div>
             </div>

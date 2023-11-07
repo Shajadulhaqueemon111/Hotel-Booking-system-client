@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const DetailsPage = () => {
-    const data = useLoaderData();
-    const { roomDescription, price, roomSize, availability, roomImages } = data;
 
-    const style = {
-        width: '200px',
-        height: '150px',
-    };
-    const Cardstyle = {
-        width: '300px',
-        height: '500px',
-    };
+const DetailsPage = () => {
+    const data = useLoaderData()
+    const {_id, roomDescription, price, roomSize, availability, roomImages,specialOffers } = data
+    console.log(data)
+
+    const style={
+        width:'200px',
+        height:'150px',
+    }
+    const Cardstyle={
+        width:'300px',
+        height:'500px'
+    }
 
     const handleAddToBook = () => {
-        const cartItem = { ...data };
+      
+        const cartItem={roomDescription, price, roomSize, availability,specialOffers, roomImages }
 
         fetch('http://localhost:5000/books', {
             method: 'POST',
@@ -42,9 +45,7 @@ const DetailsPage = () => {
 
     return (
         <div>
-            <h2 className="text-2xl font-bold mb-3">
-                Booking <span className="text-purple-700">Details</span>
-            </h2>
+            <h2 className='text-2xl font-bold mb-3'>Booking <span className='text-purple-700'>Details</span></h2>
             <div className="card  bg-base-100 shadow-xl mx-auto" style={Cardstyle}>
                 <figure className="px-10 pt-10">
                     <img style={style} src={data.roomImages} alt="Shoes" className="rounded-xl" />
@@ -53,26 +54,15 @@ const DetailsPage = () => {
                     <h2 className="card-title">{data.roomDescription}</h2>
                     <p>Room-Size: {data.roomSize}</p>
                     <p>Room-Availability: {data.availability}</p>
-
-                    <div className="card-actions">
-                        {data.availability ? (
-                            <button
-                                onClick={handleAddToBook}
-                                className="btn btn-outline btn-secondary"
-                            >
-                                Book Now
-                            </button>
-                        ) : (
-                            <button
-                                className="btn btn-outline btn-secondary"
-                                disabled
-                            >
-                                Room Booked
-                            </button>
-                        )}
+                     <p>specialOffers: {specialOffers}</p>
+                    <div className="card-actions flex">
+                    <button onClick={handleAddToBook} className="btn btn-outline btn-secondary">Book Now</button>
+                    
+                    
                     </div>
                 </div>
             </div>
+
         </div>
     );
 };
