@@ -8,7 +8,7 @@ const DetailsPage = () => {
     const {user}=useContext(AuthContext)
     const data = useLoaderData()
 
-    const {_id, roomDescription, price, roomSize, availability, roomImages,specialOffers } = data
+    const {_id, roomDescription,date, price, roomSize, availability, roomImages,specialOffers } = data
     console.log(data)
 
     const style={
@@ -23,7 +23,7 @@ const DetailsPage = () => {
     const email=user.email
     const handleAddToBook = () => {
       
-        const cartItem={roomDescription, price, roomSize, availability, roomImages,email }
+        const cartItem={roomDescription,date, price, roomSize, availability, roomImages,email }
 
         fetch('https://hotel-room-booking-server-eight.vercel.app/books', {
             method: 'POST',
@@ -58,7 +58,7 @@ const DetailsPage = () => {
                     <h2 className="card-title">{data.roomDescription}</h2>
                     <p>Room-Size: {data.roomSize}</p>
                     <p>Room-Availability: {data.availability}</p>
-                  
+                    
                     <div className="card-actions flex">
                     <button onClick={handleAddToBook} className="btn btn-outline btn-secondary">Book Now</button>
                     
