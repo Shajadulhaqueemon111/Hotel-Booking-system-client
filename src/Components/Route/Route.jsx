@@ -38,7 +38,7 @@ import ReviewDetaols from '../Review/ReviewDetaols';
             },
             {
               path:'/room',
-              element:<PrivateRoute><BookingsRoom></BookingsRoom></PrivateRoute>
+              element:<BookingsRoom></BookingsRoom>
             },
             {
               path:'/gallery',
