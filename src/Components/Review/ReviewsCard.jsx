@@ -14,7 +14,7 @@ const ReviewsCard = ({ review }) => {
                   
                 </figure>
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title">Shoes!</h2>
+                    <h2 className="card-title">Hotel</h2>
                     <p>Name:{name}</p>
                     <p>Email: {useremail}</p>
                     <p>comment: {comment}</p>
@@ -22,7 +22,7 @@ const ReviewsCard = ({ review }) => {
                     <p>Rating: {time}</p>
                   
                     <div className="card-actions">
-                        <button className="btn btn-primary">Buy Now</button>
+                        
                     </div>
                 </div>
             </div>

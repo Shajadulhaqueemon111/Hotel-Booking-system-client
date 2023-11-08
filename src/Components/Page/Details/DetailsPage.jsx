@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../Auth/AuthProvider';
 
 
 const DetailsPage = () => {
+    const {user}=useContext(AuthContext)
     const data = useLoaderData()
+
     const {_id, roomDescription, price, roomSize, availability, roomImages,specialOffers } = data
     console.log(data)
 
@@ -17,11 +20,12 @@ const DetailsPage = () => {
         height:'500px'
     }
 
+    const email=user.email
     const handleAddToBook = () => {
       
-        const cartItem={roomDescription, price, roomSize, availability, roomImages }
+        const cartItem={roomDescription, price, roomSize, availability, roomImages,email }
 
-        fetch('http://localhost:5000/books', {
+        fetch('https://hotel-room-booking-server-eight.vercel.app/books', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

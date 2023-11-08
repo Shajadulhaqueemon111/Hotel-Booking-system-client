@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Auth/AuthProvider';
 import Google from '../Google/Google';
 import {Helmet} from "react-helmet";
+import axios from 'axios';
 const Login = () => {
 
    const {user, userSingIn}=useContext(AuthContext)
@@ -45,8 +46,17 @@ const Login = () => {
 
     userSingIn(email,password)
     .then(res=>{
-        console.log(res.user)
-        navigate(location?.state? location.state:'/')
+      const loggedInUser=res.user
+        console.log(loggedInUser)
+        // navigate(location?.state? location.state:'/')
+        const user={email}
+        axios.post('https://hotel-room-booking-server-eight.vercel.app/jwt',user,{withCredentials:true})
+        .then(res=>{
+          console.log(res.data)
+          if(res.data.success){
+             navigate(location?.state? location.state:'/')
+          }
+        })
     })
     .catch(error=>{
         console.log(error)

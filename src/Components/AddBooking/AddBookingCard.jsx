@@ -13,7 +13,7 @@ const AddBookingCard = ({ bookRoom, bookRooms, setBookRooms }) => {
     }
     const Cardstyle={
         width:'300px',
-        height:'500px'
+        height:'600px'
     }
     useEffect(() => {
         Aos.init({
@@ -35,7 +35,7 @@ const AddBookingCard = ({ bookRoom, bookRooms, setBookRooms }) => {
           }).then((result) => {
             if (result.isConfirmed) {
             
-              fetch(`http://localhost:5000/books/${id}`,{
+              fetch(`https://hotel-room-booking-server-eight.vercel.app/books/${id}`,{
                 method:"DELETE"
             })
             .then(res=>res.json())

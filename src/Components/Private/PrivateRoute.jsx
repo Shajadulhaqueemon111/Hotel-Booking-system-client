@@ -7,15 +7,20 @@ const PrivateRoute = ({children}) => {
     const {user,loading}=useContext(AuthContext)
     const location=useLocation()
     console.log(location.pathname)
+   
     if(loading){
-        <progress className="progress w-56"></progress> 
-    }
-    if(user?.email){
-        return children;
-    }
-    return <Navigate state={location.pathname}  to='/login'></Navigate>
+        return <span className="loading loading-bars loading-md"></span>
+     }
+        if(user){
+            return children;
+        }
+        return <Navigate state={location.pathname} to='/login'></Navigate>
+           
+    };
+    
        
-};
+    
+   
 
    
 
