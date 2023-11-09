@@ -35,7 +35,7 @@ const AddBookingCard = ({ bookRoom, bookRooms, setBookRooms }) => {
           }).then((result) => {
             if (result.isConfirmed) {
             
-              fetch(`http://localhost:5000/books/${id}`,{
+              fetch(`https://hotel-room-booking-server-eight.vercel.app/books/${id}`,{
                 method:"DELETE"
             })
             .then(res=>res.json())
@@ -71,7 +71,7 @@ const AddBookingCard = ({ bookRoom, bookRooms, setBookRooms }) => {
                     <h2 className="card-title">{roomDescription}</h2>
                     <p>Room-Size: {roomSize}</p>
                     <p>Availability: {availability}</p>
-                    <p>SpecialOffers:{specialOffers}</p>
+                   
                     <p>Price: {price}</p>
                     <div className="card-actions">
                     <button onClick={()=>handelDelete(bookRoom._id)} className="btn btn-outline btn-secondary">Delete</button>

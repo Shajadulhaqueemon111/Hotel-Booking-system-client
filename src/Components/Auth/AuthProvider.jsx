@@ -51,7 +51,7 @@ useEffect(() => {
 
       if (user) {
         // Inside the callback, make the API request
-        axios.post('http://localhost:5000/jwt', loggedUser, { withCredentials: true })
+        axios.post('https://hotel-room-booking-server-eight.vercel.app/jwt', loggedUser, { withCredentials: true })
           .then((res) => {
             console.log('token response', res.data);
           })
@@ -60,7 +60,7 @@ useEffect(() => {
           });
       } else {
         // Handle the case where the user is not authenticated
-        axios.post('http://localhost:5000/logout', loggedUser, { withCredentials: true })
+        axios.post('https://hotel-room-booking-server-eight.vercel.app/logout', loggedUser, { withCredentials: true })
           .then((res) => {
             console.log('logout response', res.data);
           })

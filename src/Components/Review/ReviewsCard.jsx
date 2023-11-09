@@ -14,7 +14,7 @@ const ReviewsCard = ({ review }) => {
                   
                 </figure>
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title">Hotel</h2>
+                    <h2 className="card-title">User</h2>
                     <p>Name:{name}</p>
                     <p>Email: {useremail}</p>
                     <p>comment: {comment}</p>

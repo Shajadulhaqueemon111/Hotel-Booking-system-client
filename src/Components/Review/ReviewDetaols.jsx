@@ -5,7 +5,7 @@ const ReviewDetails = () => {
     const [reviews, setReviews] = useState([]); // Use square brackets to destructure the state
 
     useEffect(() => {
-        fetch("http://localhost:5000/review")
+        fetch("https://hotel-room-booking-server-eight.vercel.app/review")
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);
@@ -13,7 +13,7 @@ const ReviewDetails = () => {
     return (
         <div>
             <Marquee>
-            <h2 className='text-2xl font-bold'>Review <span className='text-purple-700'>User</span>: {reviews.length}</h2>
+            <h2 className='text-2xl font-bold'>Review <span className='text-purple-700'>User</span></h2>
             </Marquee>
            
 

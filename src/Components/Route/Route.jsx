@@ -59,17 +59,17 @@ import ReviewDetaols from '../Review/ReviewDetaols';
             {
               path:'/update/:id',
               element:<Update></Update>,
-               loader:({params})=>fetch(`http://localhost:5000/books/${params.id}`) 
+               loader:({params})=>fetch(`https://hotel-room-booking-server-eight.vercel.app/books/${params.id}`) 
             },
             {
               path:'/updateRoom/:id',
               element:<RoomUpdate></RoomUpdate>,
-               loader:({params})=>fetch(`http://localhost:5000/Bookings/${params.id}`) 
+               loader:({params})=>fetch(`https://hotel-room-booking-server-eight.vercel.app/Bookings/${params.id}`) 
             },
             {
               path:'/details/:id',
               element:<DetailsPage></DetailsPage>,
-              loader:({params})=>fetch(`http://localhost:5000/Bookings/${params.id}`)
+              loader:({params})=>fetch(`https://hotel-room-booking-server-eight.vercel.app/Bookings/${params.id}`)
             },
             {
               path:'/bookings',

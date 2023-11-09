@@ -29,7 +29,7 @@ const DetailsPage = () => {
 
         // Check if the room is available before making the booking
         if (availability === 'Available') {
-            fetch('http://localhost:5000/books', {
+            fetch('https://hotel-room-booking-server-eight.vercel.app/books', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

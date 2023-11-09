@@ -5,7 +5,7 @@
 //     const [bookings, setBookings] = useState([]); // Use square brackets to destructure the state
 
 //     useEffect(() => {
-//         fetch('http://localhost:5000/Bookings')
+//         fetch('https://hotel-room-booking-server-eight.vercel.app/Bookings')
 //         .then(res => res.json())
 //         .then(data => setBookings(data))
 //     }, []);
@@ -41,7 +41,7 @@ const BookingsRoom = () => {
    
     
     useEffect(() => {
-        fetch('http://localhost:5000/Bookings')
+        fetch('https://hotel-room-booking-server-eight.vercel.app/Bookings')
             .then((res) => res.json())
             .then((data) => setBookings(data));
     }, []);
@@ -80,8 +80,8 @@ const BookingsRoom = () => {
             <Helmet>
                 <title className='text-2xl'>Booking Page</title>
             </Helmet>
-            <h2 className="text-2xl font-bold">
-                Booking <span className="text-purple-600">Room</span>: {bookings.length}
+            <h2 className="text-2xl font-bold mb-5">
+                Booking <span className="text-purple-600">Room</span>
             </h2>
             <button onClick={toggleSortOrder}>
                 Toggle Sort Order ({sortOrder === 'asc' ? 'Ascending' : 'Descending'})
