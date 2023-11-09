@@ -11,7 +11,7 @@ const AddBooking = () => {
     // console.log(addLoad)
       const [bookRooms,setBookRooms]=useState([])
       
-      const url='https://hotel-room-booking-server-eight.vercel.app/books'
+      const url='http://localhost:5000/books'
       useEffect(()=>{
 
         axios.get(url,{withCredentials:true})

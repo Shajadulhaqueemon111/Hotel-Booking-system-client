@@ -18,7 +18,7 @@ const RoomUpdate = () => {
         const updateRoom={description,roomSize,price,availability,specialOffers,roomImages}
         console.log(updateRoom)
 
-        fetch(`https://hotel-room-booking-server-eight.vercel.app/Bookings/${_id}`,{
+        fetch(`http://localhost:5000/Bookings/${_id}`,{
             method:"PUT",
             headers:{
                 "Content-Type":"application/json"

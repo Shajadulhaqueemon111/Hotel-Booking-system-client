@@ -5,7 +5,7 @@ const ReviewDetails = () => {
     const [reviews, setReviews] = useState([]); // Use square brackets to destructure the state
 
     useEffect(() => {
-        fetch("https://hotel-room-booking-server-eight.vercel.app/review")
+        fetch("http://localhost:5000/review")
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);

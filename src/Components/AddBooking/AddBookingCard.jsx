@@ -35,7 +35,7 @@ const AddBookingCard = ({ bookRoom, bookRooms, setBookRooms }) => {
           }).then((result) => {
             if (result.isConfirmed) {
             
-              fetch(`https://hotel-room-booking-server-eight.vercel.app/books/${id}`,{
+              fetch(`http://localhost:5000/books/${id}`,{
                 method:"DELETE"
             })
             .then(res=>res.json())

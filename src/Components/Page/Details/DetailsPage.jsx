@@ -25,7 +25,7 @@ const DetailsPage = () => {
       
         const cartItem={roomDescription,date, price, roomSize, availability, roomImages,email }
 
-        fetch('https://hotel-room-booking-server-eight.vercel.app/books', {
+        fetch('http://localhost:5000/books', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

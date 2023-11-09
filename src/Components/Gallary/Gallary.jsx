@@ -5,7 +5,7 @@ const Gallary = () => {
     const [gallerys, setGallerys] = useState([]); // Use square brackets to destructure the state
 
     useEffect(() => {
-        fetch('https://hotel-room-booking-server-eight.vercel.app/Bookings')
+        fetch('http://localhost:5000/Bookings')
         .then(res => res.json())
         .then(data => setGallerys(data))
     }, []);

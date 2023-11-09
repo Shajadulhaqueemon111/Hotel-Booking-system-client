@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../Firebase/Firebase.config';
+import axios from 'axios';
 export const AuthContext=createContext()
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
@@ -26,14 +27,49 @@ const userSingOut=()=>{
     return signOut(auth)
 }
 
-useEffect(()=>{
- return   onAuthStateChanged(auth, (user) =>{
-    setUser(user)
-setLoading(false)
-    })
+// useEffect(()=>{
+//  return   onAuthStateChanged(auth, (user) =>{
+//     setUser(user)
+// setLoading(false)
+//     })
 
 
-},[])
+// },[])
+
+//////   Client side functional system 
+
+
+//Auth provider state on change functon
+
+useEffect(() => {
+    const userEmail = user?.email || user.email;
+    const loggedUser = { email: userEmail };
+
+    onAuthStateChanged(auth, (user) => {
+      setUser(user);
+      setLoading(false);
+
+      if (user) {
+        // Inside the callback, make the API request
+        axios.post('http://localhost:5000/jwt', loggedUser, { withCredentials: true })
+          .then((res) => {
+            console.log('token response', res.data);
+          })
+          .catch((error) => {
+            console.error('Error making token request:', error);
+          });
+      } else {
+        // Handle the case where the user is not authenticated
+        axios.post('http://localhost:5000/logout', loggedUser, { withCredentials: true })
+          .then((res) => {
+            console.log('logout response', res.data);
+          })
+          .catch((error) => {
+            console.error('Error logging out:', error);
+          });
+      }
+    });
+  }, []);
 console.log(user)
 
     const userInfo={

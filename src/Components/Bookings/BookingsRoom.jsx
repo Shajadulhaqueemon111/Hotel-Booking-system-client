@@ -5,7 +5,7 @@
 //     const [bookings, setBookings] = useState([]); // Use square brackets to destructure the state
 
 //     useEffect(() => {
-//         fetch('https://hotel-room-booking-server-eight.vercel.app/Bookings')
+//         fetch('http://localhost:5000/Bookings')
 //         .then(res => res.json())
 //         .then(data => setBookings(data))
 //     }, []);
@@ -35,27 +35,45 @@ import { Helmet } from 'react-helmet';
 
 const BookingsRoom = () => {
     const [bookings, setBookings] = useState([]);
+    
     const [sortOrder, setSortOrder] = useState('asc'); 
-
+    
+   
+    
     useEffect(() => {
-        fetch('https://hotel-room-booking-server-eight.vercel.app/Bookings?sort=asc')
+        fetch('http://localhost:5000/Bookings')
             .then((res) => res.json())
             .then((data) => setBookings(data));
     }, []);
 
    
     const toggleSortOrder = () => {
+        console.log('Before toggle:', sortOrder);
         setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+        console.log('After toggle:', sortOrder);
     };
 
     
-    const sortedBookings = [...bookings].sort((a, b) => {
-        if (sortOrder === 'asc') {
-            return a.price - b.price;
-        } else {
-            return b.price - a.price;
-        }
-    });
+    // const sortedBookings = [...bookings].sort((a, b) => {
+    //     if (sortOrder === 'asc') {
+    //         return a.price - b.price;
+    //     } else {
+    //         return b.price - a.price;
+    //     }
+    // });
+    useEffect(()=>{
+        const sortedBookings = [...bookings].sort((a, b) => {
+            if (sortOrder === 'asc') {
+                return parseFloat(a.price.split("$").join('')) -parseFloat(b.price.split("$").join(''));
+            } else {
+                return parseFloat(b.price.split("$").join('')) -parseFloat(a.price.split("$").join(''));
+            }
+        });
+       console.log(sortedBookings)
+   setBookings(sortedBookings)
+    
+        },[sortOrder])
+    // console.log('sortedBookings:', sortedBookings);
 
     return (
         <div>
@@ -71,7 +89,7 @@ const BookingsRoom = () => {
             </button>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {sortedBookings.map((booking) => (
+                {bookings.map((booking) => (
                     <BookingCard key={booking._id} booking={booking} />
                 ))}
             </div>
