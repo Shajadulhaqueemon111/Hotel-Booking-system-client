@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ReviewsCard = ({ review }) => {
-    const { name, rating, comment, time, useremail } = review;
+    const { name, rating, comment, date, useremail } = review;
     const cardStyle = {
         maxWidth: '300px',  
         maxHeight: '400px', 
@@ -9,7 +9,7 @@ const ReviewsCard = ({ review }) => {
     };
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow" style={cardStyle}>
+            <div className="card w-96 bg-base-100 shadow-xl mx-auto" style={cardStyle}>
                 <figure className="px-10 pt-10">
                   
                 </figure>
@@ -19,7 +19,7 @@ const ReviewsCard = ({ review }) => {
                     <p>Email: {useremail}</p>
                     <p>comment: {comment}</p>
                     <p>Rating: {rating}</p>
-                    <p>Rating: {time}</p>
+                    <p>Date: {date}</p>
                   
                     <div className="card-actions">
                         

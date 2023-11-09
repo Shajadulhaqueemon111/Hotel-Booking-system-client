@@ -14,10 +14,10 @@ const ReviewUser = () => {
           
             const rating=e.target.rating.value 
             const comment=e.target.comment.value
-            const time=e.target.time.value
+            const date=e.target.date.value
     
             const useremail = user.email; 
-            const userReview={name,rating,comment,time,useremail}
+            const userReview={name,rating,comment,date,useremail}
             console.log(userReview)
     
             fetch("http://localhost:5000/review",{
@@ -84,11 +84,11 @@ const ReviewUser = () => {
                     </div>
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text">Time</span>
+                            <span className="label-text">Date</span>
                         </label>
                         <label className="input-group">
     
-                            <input type="text" name='time' placeholder="Enter time" className="input input-bordered w-full" />
+                            <input type="date" name='date' placeholder="Enter time" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -96,7 +96,7 @@ const ReviewUser = () => {
                 {/* Form row */}
               
                
-                <button className="btn mt-4 btn-block bg-[#D2B48C]">Update Car</button>
+                <button className="btn mt-4 btn-block bg-[#D2B48C]">Review</button>
             </form>
         </div>
         );

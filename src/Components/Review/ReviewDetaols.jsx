@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReviewsCard from './ReviewsCard';
-
+import Marquee from "react-fast-marquee";
 const ReviewDetails = () => {
     const [reviews, setReviews] = useState([]); // Use square brackets to destructure the state
 
@@ -12,7 +12,10 @@ const ReviewDetails = () => {
 
     return (
         <div>
+            <Marquee>
             <h2 className='text-2xl font-bold'>Review <span className='text-purple-700'>User</span>: {reviews.length}</h2>
+            </Marquee>
+           
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mx-auto'>
                 {
